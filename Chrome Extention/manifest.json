@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "URL Reader",
+  "version": "1.0",
+  "description": "Reads URLs of all open tabs and displays them on icon click.",
+  "permissions": ["activeTab", 
+                  "http://127.0.0.1/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "Icons/icon16.png",
+      "48": "Icons/icon48.png",
+      "128": "Icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "Icons/icon16.png",
+    "48": "Icons/icon48.png",
+    "128": "Icons/icon128.png"
+  }
+}

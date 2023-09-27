@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Typing Area</title>
+<style>
+  :root {
+    --spacing: 10px; /* Adjust this value to control spacing */
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .top-area {
+    margin-bottom: 10px;
+  }
+
+  .bottom-row {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    width: 100%;
+    margin-top: calc(var(--spacing) * 2); /* Add some space between the text area and the bottom row */
+  }
+
+  .left-button {
+    margin-right: var(--spacing);
+  }
+
+  .right-switch {
+    display: flex;
+    align-items: center;
+  }
+
+  .slider-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .slider-label {
+    margin-right: var(--spacing);
+  }
+
+  .slider {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+
+  .slider:before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    left: 1px;
+    top: 1px;
+    transition: 0.3s;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"]:checked + .slider {
+    background-color: #6ea65f; /* Color when switched on */
+  }
+
+  input[type="checkbox"]:checked + .slider:before {
+    transform: translateX(20px);
+  }
+  p.article {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-area">
+      <textarea id="query"></textarea>
+    </div>
+    <div class="bottom-row">
+      <button class="left-button" id="ask_btn">ask</button>
+      <div class="right-switch">
+        <span class="slider-label">Use Google</span>
+        <label class="slider-container">
+          <input type="checkbox">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+    <div id="output">
+        <h2 id="resp_head">Response:</h2>
+        <p class="article" id="response"></p>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
